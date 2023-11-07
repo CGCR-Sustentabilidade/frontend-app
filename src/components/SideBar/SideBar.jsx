@@ -1,5 +1,7 @@
-import  Button from "../Button/Button";
-import {SideBarConteiner, Title, UserDiv, Name, Office, UserImage} from "./SideBar.styled"
+import Button from "../Button/Button";
+import { SideBarConteiner, Title, UserDiv, Name, Office, UserImage } from "./SideBar.styled"
+
+import { Link } from "react-router-dom";
 
 import userSolid from "../../assets/icons/userSolid.svg";
 import houseSolid from "../../assets/icons/houseSolid.svg";
@@ -7,8 +9,8 @@ import pillsSolid from "../../assets/icons/pillsSolid.svg";
 import inboxSolid from "../../assets/icons/inboxSolid.svg";
 import cartshopping from "../../assets/icons/cartshopping.svg";
 
-export const SideBar = ({name, office}) => {
-    return(
+export const SideBar = ({ name, office }) => {
+    return (
         <SideBarConteiner>
             <Title>CGCR</Title>
             <UserDiv>
@@ -16,14 +18,30 @@ export const SideBar = ({name, office}) => {
                 <Name>{name}</Name>
                 <Office>{office}</Office>
             </UserDiv>
-            <Button title={"Home"} id={'SideBar'} icon={houseSolid}/>
-            <Button title={"Idosos"} id={'SideBar'} icon={userSolid}/>
-            <Button title={"Medicamentos"} id={'SideBar'} icon={pillsSolid}/>
-            <Button title={"Produtos"} id={'SideBar'} icon={cartshopping}/>
-            <Button title={"Relatórios"} id={'SideBar'} icon={inboxSolid}/>
+
+            <Link to='/'>
+                <Button title={"Home"} id={'SideBar'} icon={houseSolid} />
+            </Link>
+            
+            <Link to='/idosos'>
+                <Button title={"Idosos"} id={'SideBar'} icon={userSolid} />
+            </Link>
+
+            <Link to='/medicamentos'>
+                <Button title={"Medicamentos"} id={'SideBar'} icon={pillsSolid} />
+            </Link>
+
+            <Link to='/produtos'>
+                <Button title={"Produtos"} id={'SideBar'} icon={cartshopping} />
+            </Link>
+
+            <Link to='/'>
+                <Button title={"Relatórios"} id={'SideBar'} icon={inboxSolid} />
+            </Link>
+
         </SideBarConteiner>
     );
 
-} 
+}
 
 export default SideBar;

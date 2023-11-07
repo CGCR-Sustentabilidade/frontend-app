@@ -8,6 +8,10 @@ export const SideBarConteiner = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 24px;
+
+    & a {
+        text-decoration: none
+    }
 `;
 
 export const Title = styled.h1`

@@ -38,8 +38,9 @@ const StyledButton = styled.button`
         width: 80%;
         height: 41px;
         background-color: #FEAF00;
-        flex-direction: column; 
         color: #fff;
+        padding: 0;
+        margin: 10px 0;
     }
 `;
 

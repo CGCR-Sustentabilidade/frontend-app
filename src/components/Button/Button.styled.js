@@ -33,6 +33,15 @@ const StyledButton = styled.button`
         background-color: #FEAF00;
         flex-direction: column;        
     }
+
+    &.Form {
+        width: 80%;
+        height: 41px;
+        background-color: #FEAF00;
+        color: #fff;
+        padding: 0;
+        margin: 10px 0;
+    }
 `;
 
 export default StyledButton;

@@ -2,28 +2,28 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
 import SideBar from "../../components/SideBar/SideBar";
-
 import person from "../../assets/icons/person.svg";
 import { MedicineConteiner, MedicineScreen } from "./Medicines.styled";
 
-const medicinesList = [
-  {
-    info1: "Victor Adriel",
-    info2: "victoradriel01@gmail.com",
-    info3: "victoradriel01",
-    info4: "victoradriel01",
-    info5: "victoradriel01",
-  },
-  {
-    info1: "Victor Adriel",
-    info2: "victoradriel01@gmail.com",
-    info3: "victoradriel01",
-    info4: "victoradriel01",
-    info5: "victoradriel01",
-  },
-];
-
 export const MedicinesScreen = () => {
+
+    const medicinesList = [
+        {
+          info1: "Victor Adriel",
+          info2: "victoradriel01@gmail.com",
+          info3: "victoradriel01",
+          info4: "victoradriel01",
+          info5: "victoradriel01",
+        },
+        {
+          info1: "Victor Adriel",
+          info2: "victoradriel01@gmail.com",
+          info3: "victoradriel01",
+          info4: "victoradriel01",
+          info5: "victoradriel01",
+        },
+      ];
+      
   return (
     <MedicineScreen>
       <SideBar />

@@ -1,38 +1,39 @@
 import styled from 'styled-components';
-import {toRem} from '../../utils/convertToRem';
 
 export const InputContainer = styled.div`
-    max-width: ${toRem(379)};
-    height: ${toRem(60)};
-    padding: 0 ${toRem(20)};
+    width: 370px;
+    height: 60px;
+    padding: 0px 20px;
     display: inline-flex;
-    align-items: center;
-    border: 1px solid #ffffff;
+    align-items: start;
     border-width: 2px;
-    border-radius: ${toRem(50)};
-
-    &&& {
-    border: 2px solid ${props => props.isError ? '#e9b425' : '#ffffff'};
-    };    
+    display: flex;
+    flex-direction: column;
 `;
 
 export const InputStyled = styled.input`
     width: 100%;
-    height: 100%;
-    border: none;
+    height: 60%;
+    border: 1px solid #ACACAC;
+    border-radius: 5px;
     outline: none;
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    background: transparent;
-    color: #e0e0e0;
+    font-size: 14px;
+    background: #fff;
+    color: #000;
+    padding: 8px;
 
     ::placeholder {
         color: #e0e0e0;
     }
 `;
 
-export const IconStyled = styled.img`
-    width: ${toRem(20)};
-    color: #e0e0e0;
+export const Label = styled.label`
+    font-size: 16px;
+    color: #000;
+    margin: 5px;
+
 `;
+
+
 

@@ -1,19 +1,17 @@
 import React from 'react';
-import {IconStyled, InputContainer, InputStyled} from './Input.styled';
+import { InputContainer, InputStyled, Label} from './Input.styled';
 
-import lock from '../../assets/icons/lock.svg';
-import person from '../../assets/icons/person.svg';
 
-export const Input = ({placeholder, type, register, isError}) => {
+export const Input = ({placeholder, type, register, label, isError}) => {
     return (
         <InputContainer isError={isError}>
+            <Label>{label}</Label>
             <InputStyled
                 placeholder={placeholder}
                 type={type}
                 {...register}
                 autoComplete='off'
             />
-            <IconStyled src={type === 'password' ? lock : person} />
         </InputContainer>
     );
 };

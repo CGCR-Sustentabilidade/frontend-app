@@ -4,10 +4,10 @@ export const DetailsCardStyled = styled.div`
   width: 1110px;
   height: 85px;
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto;
+  grid-template-columns: 2fr 2fr 3fr 2fr 2fr 2fr 2fr;
   align-items: center;
-  justify-content: space-around;
   background-color: #fff;
+  text-align: start;
 `;
 
 export const IconsDiv = styled.div`
@@ -15,10 +15,12 @@ export const IconsDiv = styled.div`
   grid-template-columns: auto auto;
   gap: 30px;
   align-items: center;
+  justify-content:center;
 `;
 
 export const Image = styled.img`
   width: 24px;
+  justify-self: center;
 `;
 
 export const Icons = styled.img`

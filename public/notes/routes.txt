@@ -1,0 +1,9 @@
+ROTAS:
+
+https://cgcrsistemainterno.up.railway.app/catalog/
+
+https://cgcrsistemainterno.up.railway.app/catalog/one-product/:id
+https://cgcrsistemainterno.up.railway.app/catalog/list-products
+https://cgcrsistemainterno.up.railway.app/catalog/create-product
+https://cgcrsistemainterno.up.railway.app/catalog/delete-product/:id
+https://cgcrsistemainterno.up.railway.app/catalog/update-product/:id

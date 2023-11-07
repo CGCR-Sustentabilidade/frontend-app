@@ -1,0 +1,13 @@
+{
+    "product": {
+        "brand": "marca_do_produto",
+        "created_at": "08/05/2006 03:05:15 PM",
+        "description": "descrição do produto",
+        "expiration_date": "08/05/2006 03:05:15 PM",
+        "name": "1_nome_do_produto",
+        "quantity": 10,
+        "status": "Disponível",
+        "type": "Tipo 1",
+        "updated_at": "08/05/2006 03:05:15 PM"
+    }
+}

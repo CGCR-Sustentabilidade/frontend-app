@@ -1,0 +1,13 @@
+{
+    "remedy": {
+        "brand": "marca_do_remédio",
+        "created_at": "08/05/2006 03:05:15 PM",
+        "description": "descrição do remédio",
+        "expiration_date": "08/05/2006 03:05:15 PM",
+        "name": "8_nome_do_remédio",
+        "quantity": 10,
+        "status": "Disponível",
+        "type": "Tipo 1",
+        "updated_at": "08/05/2006 03:05:15 PM"
+    }
+}

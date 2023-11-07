@@ -1,12 +1,14 @@
 import React from "react"
 import { Button, Div, HeaderConteiner, HorizontalLine, InfoDiv, Spacer, Title } from "./Header.styled"
 
-export default ({title, textButton, info1, info2, info3, info4, info5}) => {
+export default ({title, textButton, info1, info2, info3, info4, info5, isButtonON}) => {
+    console.log(isButtonON)
+
     return (
         <HeaderConteiner>
             <Div>
                 <Title>{title}</Title>
-                <Button>{textButton}</Button>
+                {isButtonON && <Button>{textButton}</Button>}
             </Div>
             <HorizontalLine></HorizontalLine>
             <InfoDiv>

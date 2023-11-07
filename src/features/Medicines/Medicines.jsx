@@ -1,6 +1,7 @@
 import React from "react";
-import Header from "../Header/Header";
-import DetailsCard from "../DetailsCard/DetailsCard";
+
+import Header from "../../components/Header/Header";
+import DetailsCard from "../../components/DetailsCard/DetailsCard";
 
 import person from '../../assets/icons/person.svg'
 import { MedicineConteiner } from "./Medicines.styled";
@@ -16,6 +17,7 @@ export default _ => {
                 info3='Telefone'
                 info4='ID'
                 info5='Data de Entrada' 
+                isButtonOn={true}
             />
             <DetailsCard
                 info1='Victor Adriel'

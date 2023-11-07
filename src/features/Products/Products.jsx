@@ -1,4 +1,5 @@
 import React from "react";
+
 import Header from "../../components/Header/Header";
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
 
@@ -16,6 +17,7 @@ export default _ => {
                 info3='Telefone'
                 info4='ID'
                 info5='Data de Entrada' 
+                isButtonON={true}
             />
             <DetailsCard
                 info1='Victor Adriel'

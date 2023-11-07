@@ -22,6 +22,7 @@ export const InfoDiv = styled.div`
     color: #ACACAC;
     font-size: 12px;
     font-weight: 600;
+    
 `;
 
 export const Div = styled.div`

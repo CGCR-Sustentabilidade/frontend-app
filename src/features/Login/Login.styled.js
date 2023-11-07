@@ -28,6 +28,19 @@ export const Title = styled.p`
   font-weight: 700;
   padding: 0;
   margin-top: 44px;
+  margin-bottom: 10px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 5px; 
+    height: 30px; 
+    background-color: #F8D442; 
+    top: 12%;
+    left: -30px; 
+    border-radius: 20px;
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -49,4 +62,11 @@ export const Text = styled.p`
   font-weight: 400;
   margin: 0;
   padding: 0;
+`;
+
+export const ErrorMessage = styled.span`
+    font-size: 10px;
+    color: red;
+    align-self: flex-start;
+    margin-left: 55px;
 `;

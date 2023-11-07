@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const DetailsCardStyled = styled.div`
-  width: 1110px;
+  width: 100%;
+  min-width: 1250px;
   height: 85px;
   display: grid;
   grid-template-columns: 2fr 2fr 3fr 2fr 2fr 2fr 2fr;
   align-items: center;
   background-color: #fff;
   text-align: start;
+  border-radius: 20px;
 `;
 
 export const IconsDiv = styled.div`

@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 
 export const HeaderConteiner = styled.div`
-    width: 1110px;
+    width: 100%;
+    min-width: 1250px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box; 
@@ -11,13 +12,13 @@ export const HeaderConteiner = styled.div`
 `;
 
 export const InfoDiv = styled.div`
-    width: 1110px;
+    width: 100%;
+    min-width: 1250px;
     height: 60px;
     display: grid;
     grid-template-columns: 2fr 2fr 3fr 2fr 2fr 2fr 2fr;
     align-items: center;
     justify-content: space-around;
-    background-color: #fff;
     color: #ACACAC;
     font-size: 12px;
     font-weight: 600;
@@ -38,7 +39,6 @@ export const Title = styled.h1`
 `;
 
 export const Button = styled.button`
-    
     width: 199px;
     height: 44px;
     border-radius: 4px;
@@ -58,7 +58,8 @@ export const Button = styled.button`
 `;
 
 export const HorizontalLine = styled.hr`
-    width: 1110px;
+    width: 100%;
+    min-width: 1250px;
     backgrpund-color: pink;
     margin: 0;
 `;

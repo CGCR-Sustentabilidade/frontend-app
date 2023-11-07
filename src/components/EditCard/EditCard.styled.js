@@ -24,4 +24,5 @@ export const CloseIcon = styled.img`
     width: 12px;
     align-self: end;
     margin: 0px 45px;
+    cursor: pointer;
 `;

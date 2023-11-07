@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../Header/Header";
-import DetailsCard from "../DetailsCard/DetailsCard";
+import Header from "../../components/Header/Header";
+import DetailsCard from "../../components/DetailsCard/DetailsCard";
 
 import person from '../../assets/icons/person.svg'
 import { ProductConteiner } from "./Products.styled";

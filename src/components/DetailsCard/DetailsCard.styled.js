@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const DetailsCardStyled = styled.div`
-  width: 1110px;
+  width: 1170px;
   height: 85px;
   display: grid;
   grid-template-columns: 2fr 2fr 3fr 2fr 2fr 2fr 2fr;
   align-items: center;
   background-color: #fff;
   text-align: start;
+  margin-bottom: 10px;
 `;
 
 export const IconsDiv = styled.div`
@@ -15,7 +16,7 @@ export const IconsDiv = styled.div`
   grid-template-columns: auto auto;
   gap: 30px;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 `;
 
 export const Image = styled.img`

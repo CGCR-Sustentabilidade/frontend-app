@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import SideBar from "../../components/SideBar/SideBar";
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
 import person from "../../assets/icons/person.svg";
 import { ProductsList, ProductsConteiner } from "./Products.styled";
@@ -8,31 +7,30 @@ import { ProductsList, ProductsConteiner } from "./Products.styled";
 export const ProductsScreen = () => {
   const productsList = [
     {
-      info1: "Victor Adriel",
-      info2: "victoradriel01@gmail.com",
-      info3: "victoradriel01",
-      info4: "victoradriel01",
-      info5: "victoradriel01",
+      info1: "Test",
+      info2: "Test",
+      info3: "10",
+      info4: "01",
+      info5: "02/11/2023",
     },
     {
-      info1: "Victor Adriel",
-      info2: "victoradriel01@gmail.com",
-      info3: "victoradriel01",
-      info4: "victoradriel01",
-      info5: "victoradriel01",
+      info1: "Test",
+      info2: "Test",
+      info3: "15",
+      info4: "02",
+      info5: "02/11/2023",
     },
   ];
 
   return (
     <ProductsList>
-        <SideBar />
       <ProductsConteiner>
         <Header
           title="Produtos"
           textButton="Adicionar Produto"
           info1="Nome"
-          info2="Email"
-          info3="Telefone"
+          info2="Descrição"
+          info3="Quantidade"
           info4="ID"
           info5="Data de Entrada"
         />
@@ -45,7 +43,7 @@ export const ProductsScreen = () => {
             info4={product.info4}
             info5={product.info5}
             imgSrc={person}
-            title={"Teste"}
+            title={"Editar Produto"}
             placeholder1={"Test"}
             placeholder2={"Test"}
             placeholder3={"Test"}

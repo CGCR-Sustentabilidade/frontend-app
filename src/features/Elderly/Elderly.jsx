@@ -1,5 +1,4 @@
 import React from "react";
-import SideBar from "../../components/SideBar/SideBar";
 import Header from "../../components/Header/Header";
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
 import person from "../../assets/icons/person.svg";
@@ -11,22 +10,28 @@ export const ElderlyScreen = () => {
         {
           info1: "Victor Adriel",
           info2: "victoradriel01@gmail.com",
-          info3: "victoradriel01",
-          info4: "victoradriel01",
-          info5: "victoradriel01",
+          info3: "(31) 111111111",
+          info4: "01",
+          info5: "Regular",
         },
         {
-          info1: "Victor Adriel",
-          info2: "victoradriel01@gmail.com",
-          info3: "victoradriel01",
-          info4: "victoradriel01",
-          info5: "victoradriel01",
+          info1: "Ana Carolina",
+          info2: "anacarolina@gmail.com",
+          info3: "(31) 111111111",
+          info4: "02",
+          info5: "Regular",
+        },
+        {
+          info1: "Maria",
+          info2: "mariaa@gmail.com",
+          info3: "(31) 111111111",
+          info4: "03",
+          info5: "Regular",
         },
       ];
 
   return (
     <ElderlyConteiner>
-      <SideBar />
       <ElderlyCards>
         <Header
           title="Idosos"
@@ -35,7 +40,7 @@ export const ElderlyScreen = () => {
           info2="Email"
           info3="Telefone"
           info4="ID"
-          info5="Data de Entrada"
+          info5="Status"
         />
        {elderlyList.map((medicine, index) => (
           <DetailsCard
@@ -46,7 +51,7 @@ export const ElderlyScreen = () => {
             info4={medicine.info4}
             info5={medicine.info5}
             imgSrc={person}
-            title={'Teste'}
+            title={'Editar Idoso'}
             placeholder1={"Test"}
             placeholder2={"Test"}
             placeholder3={"Test"}

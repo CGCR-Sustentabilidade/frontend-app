@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
-import SideBar from "../../components/SideBar/SideBar";
 import person from "../../assets/icons/person.svg";
 import { MedicineConteiner, MedicineScreen } from "./Medicines.styled";
 
@@ -9,33 +8,32 @@ export const MedicinesScreen = () => {
 
     const medicinesList = [
         {
-          info1: "Victor Adriel",
-          info2: "victoradriel01@gmail.com",
-          info3: "victoradriel01",
-          info4: "victoradriel01",
-          info5: "victoradriel01",
+          info1: "Test",
+          info2: "Test",
+          info3: "05/03/2025",
+          info4: "50",
+          info5: "Disponível",
         },
         {
-          info1: "Victor Adriel",
-          info2: "victoradriel01@gmail.com",
-          info3: "victoradriel01",
-          info4: "victoradriel01",
-          info5: "victoradriel01",
+          info1: "Test",
+          info2: "Test",
+          info3: "15/06/2026",
+          info4: "100",
+          info5: "Disponível",
         },
       ];
       
   return (
     <MedicineScreen>
-      <SideBar />
       <MedicineConteiner>
         <Header
           title="Medicamentos"
           textButton="Adicionar Medicamento"
           info1="Nome"
-          info2="Email"
-          info3="Telefone"
-          info4="ID"
-          info5="Data de Entrada"
+          info2="Descrição"
+          info3="Validade"
+          info4="Quantidade"
+          info5="Status"
         />
         {medicinesList.map((medicine, index) => (
           <DetailsCard
@@ -46,7 +44,7 @@ export const MedicinesScreen = () => {
             info4={medicine.info4}
             info5={medicine.info5}
             imgSrc={person}
-            title={'Teste'}
+            title={'Editar Medicamento'}
             placeholder1={"Test"}
             placeholder2={"Test"}
             placeholder3={"Test"}

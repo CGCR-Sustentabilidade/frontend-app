@@ -6,23 +6,23 @@ import reportWebVitals from './reportWebVitals';
 
 import { createBrowserRouter as Router, RouterProvider} from 'react-router-dom';
 
-import Dashboard from './features/Dashboard/Dashboard';
-import Products from './features/Products/Products';
+// import Dashboard from './features/Dashboard/Dashboard';
+import { ProductsScreen } from './features/Products/Products';
 import Medicines from './features/Medicines/Medicines';
-import Elderly from './features/Elderly/Elderly';
+import { ElderlyScreen } from './features/Elderly/Elderly';
 
 const router = Router([
   {
     path: '/',
     element: <App />,
     children: [
-      {
-        path: '/',
-        element: <Dashboard />,
-      },
+      // {
+      //   path: '/',
+      //   element: <Dashboard />,
+      // },
       {
         path: "produtos",
-        element: <Products />
+        element: <ProductsScreen />
       },
       {
         path: "/medicamentos",
@@ -30,7 +30,7 @@ const router = Router([
       },
       {
         path: "/idosos",
-        element: <Elderly />
+        element: <ElderlyScreen />
       },
     ]
   },

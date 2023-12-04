@@ -1,28 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
 import person from "../../assets/icons/person.svg";
 import { MedicineConteiner, MedicineScreen } from "./Medicines.styled";
+import axios from "axios";
 
 export const MedicinesScreen = () => {
+  const initialState = {
+    name: "1_nome_do_remédio",
+    brand: "marca_do_remédio",
+    description: "descrição do remédio",
+    quantity: 10,
+    expiration_date: "2006-08-05T18:05:15.000Z",
+  };
 
-    const medicinesList = [
-        {
-          info1: "Test",
-          info2: "Test",
-          info3: "05/03/2025",
-          info4: "50",
-          info5: "Disponível",
-        },
-        {
-          info1: "Test",
-          info2: "Test",
-          info3: "15/06/2026",
-          info4: "100",
-          info5: "Disponível",
-        },
-      ];
-      
+  const [values, setValues] = useState(initialState);
+  const [medicines, setMedicines] = useState([]);
+
+  useEffect(() => {
+    const params = {};
+
+    axios
+      .get("https://cgcrsistemainterno.up.railway.app/catalog/list-remedies", {
+        params,
+      })
+      .then((response) => {
+        setMedicines(response.data);
+      });
+  }, []);
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
+
+  const submit = (e) => {
+    e.preventDefault();
+
+    axios.post(
+      "https://cgcrsistemainterno.up.railway.app/catalog/create-remedy",
+      values
+    );
+  };
+
   return (
     <MedicineScreen>
       <MedicineConteiner>
@@ -35,16 +55,16 @@ export const MedicinesScreen = () => {
           info4="Quantidade"
           info5="Status"
         />
-        {medicinesList.map((medicine, index) => (
+        {medicines.map((medicine, index) => (
           <DetailsCard
             key={index}
-            info1={medicine.info1}
-            info2={medicine.info2}
-            info3={medicine.info3}
-            info4={medicine.info4}
-            info5={medicine.info5}
+            info1={medicine.name}
+            info2={medicine.brand}
+            info3={medicine.description}
+            info4={medicine.quantity}
+            info5={medicine.expiration_date}
             imgSrc={person}
-            title={'Editar Medicamento'}
+            title={"Editar Medicamento"}
             placeholder1={"Test"}
             placeholder2={"Test"}
             placeholder3={"Test"}
@@ -60,6 +80,15 @@ export const MedicinesScreen = () => {
             type3={"text"}
             type4={"text"}
             type5={"text"}
+            name1={'name1'}
+            name2={'name2'}
+            name3={'name3'}
+            name4={'name4'}
+            name5={'name5'}
+            onChange={onChange}
+            submit={submit}
+            itemId={index}
+            url={'https://cgcrsistemainterno.up.railway.app/catalog/delete-remedy/'}
           />
         ))}
       </MedicineConteiner>

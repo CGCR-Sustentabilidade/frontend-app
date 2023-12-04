@@ -69,7 +69,6 @@ const DetailsCard = ({
     <>
       {isDetailsCard && (
         <DetailsCardStyled>
-          <Image src={imgSrc} alt="" />
           <span>{info1}</span>
           <span>{info2}</span>
           <span>{info3}</span>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ProductsList = styled.div`
-  margin: 0;
+  margin: 0px;
   padding: 0px;
   width: 100%;
   background-color: #f8f8f8;
@@ -10,7 +10,7 @@ export const ProductsList = styled.div`
 `;
 
 export const ProductsConteiner = styled.div`
-  width: 1070px;
+  width: 100%;
   margin: 0px 30px 0 30px;
   display: grid;
 `;

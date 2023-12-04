@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderConteiner = styled.div`
-  width: 1170px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -10,10 +10,10 @@ export const HeaderConteiner = styled.div`
 `;
 
 export const InfoDiv = styled.div`
-  width: 1170px;
+  width: 100%;
   height: 60px;
   display: grid;
-  grid-template-columns: 2fr 2fr 3fr 2fr 2fr 2fr 2fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr ;
   align-items: center;
   justify-content: space-around;
   background-color: #e5e5e5;

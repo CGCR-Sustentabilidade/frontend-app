@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const DetailsCardStyled = styled.div`
-  width: 1170px;
+  width: 100%;
   height: 85px;
   display: grid;
-  grid-template-columns: 2fr 2fr 3fr 2fr 2fr 2fr 2fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
   align-items: center;
   background-color: #fff;
   text-align: start;

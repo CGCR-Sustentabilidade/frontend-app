@@ -52,12 +52,11 @@ export const ProductsScreen = () => {
         {products.map((product, index) => (
           <DetailsCard
             key={index}
-            info1={product.info1}
-            info2={product.info2}
-            info3={product.info3}
-            info4={product.info4}
-            info5={product.info5}
-            imgSrc={person}
+            info1={product.name}
+            info2={product.brand}
+            info3={product.description}
+            info4={product.quantity}
+            info5={product.status}
             title={"Editar Produto"}
             placeholder1={"Test"}
             placeholder2={"Test"}
@@ -81,6 +80,8 @@ export const ProductsScreen = () => {
             name5={'name5'}
             onChange={onChange}
             submit={submit}
+            itemId={index}
+            url={'https://cgcrsistemainterno.up.railway.app/catalog/delete-product/'}
           />
         ))}
       </ProductsConteiner>

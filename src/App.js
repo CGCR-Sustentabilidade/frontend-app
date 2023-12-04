@@ -5,8 +5,8 @@ import SideBar from "./components/SideBar/SideBar";
 function App() {
   return (
     <div className="App">
-      {" "}
-      <SideBar /> <Outlet />{" "}
+      <SideBar /> 
+      <Outlet />
     </div>
   );
 }

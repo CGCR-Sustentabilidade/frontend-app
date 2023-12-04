@@ -8,6 +8,7 @@ import {
 import pencil from "../../assets/icons/pencil.svg";
 import trash from "../../assets/icons/trash.svg";
 import EditCard from "../EditCard/EditCard";
+import axios from "axios";
 
 const DetailsCard = ({
   info1,
@@ -32,6 +33,15 @@ const DetailsCard = ({
   type3,
   type4,
   type5,
+  name1,
+  name2,
+  name3,
+  name4,
+  name5,
+  onChange,
+  submit,
+  url,
+  itemId,
 }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isDetailsCard, setIsDetailsCard] = useState(true);
@@ -45,7 +55,14 @@ const DetailsCard = ({
   };
 
   const handleDelete = () => {
-    setIsDetailsCard(false);
+    axios.delete(url, {
+      params: {
+        id: itemId,
+      },
+    })
+    .then((response) => {
+      setIsDetailsCard(false);
+    });
   };
 
   return (
@@ -83,6 +100,13 @@ const DetailsCard = ({
           type3={type3}
           type4={type4}
           type5={type5}
+          name1={name1}
+          name2={name2}
+          name3={name3}
+          name4={name4}
+          name5={name5}
+          onChange={onChange}
+          submit={submit}
         />
       )}
     </>

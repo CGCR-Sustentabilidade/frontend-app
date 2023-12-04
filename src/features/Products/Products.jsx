@@ -1,26 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
 import person from "../../assets/icons/person.svg";
 import { ProductsList, ProductsConteiner } from "./Products.styled";
+import axios from "axios";
 
 export const ProductsScreen = () => {
-  const productsList = [
-    {
-      info1: "Test",
-      info2: "Test",
-      info3: "10",
-      info4: "01",
-      info5: "02/11/2023",
-    },
-    {
-      info1: "Test",
-      info2: "Test",
-      info3: "15",
-      info4: "02",
-      info5: "02/11/2023",
-    },
-  ];
+  const initialState = {
+    name: "",
+    brand: "",
+    description: "",
+    quantity: 0,
+    status: "",
+  };
+
+  const [values, setValues] = useState(initialState);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const params = {};
+
+    axios.get('https://cgcrsistemainterno.up.railway.app/catalog/list-products', { params })
+      .then((response) => {
+        setProducts(response.data);
+      });
+  }, []);
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
+
+  const submit = (e) => {
+    e.preventDefault();
+
+    axios.post("https://cgcrsistemainterno.up.railway.app/catalog/create-product", values);
+  };
 
   return (
     <ProductsList>
@@ -34,7 +49,7 @@ export const ProductsScreen = () => {
           info4="ID"
           info5="Data de Entrada"
         />
-        {productsList.map((product, index) => (
+        {products.map((product, index) => (
           <DetailsCard
             key={index}
             info1={product.info1}
@@ -59,6 +74,13 @@ export const ProductsScreen = () => {
             type3={"text"}
             type4={"text"}
             type5={"text"}
+            name1={'name1'}
+            name2={'name2'}
+            name3={'name3'}
+            name4={'name4'}
+            name5={'name5'}
+            onChange={onChange}
+            submit={submit}
           />
         ))}
       </ProductsConteiner>

@@ -1,4 +1,11 @@
-import { Screen, Card, CloseIcon } from "./EditCard.styled";
+import React from "react";
+import {
+  Screen,
+  Card,
+  CloseIcon,
+  FormStyled,
+  DivButton,
+} from "./EditCard.styled";
 import { Input } from "../Input/Input";
 import Button from "../Button/Button";
 import xSolid from "../../assets/icons/xSolid.svg";
@@ -20,22 +27,62 @@ export const EditCard = ({
   type3,
   type4,
   type5,
+  name1,
+  name2,
+  name3,
+  name4,
+  name5,
   handleCloseModal,
+  onChange,
+  submit
 }) => {
+
   return (
     <Screen>
-      {/* {isModalVisible && ( */}
       <Card>
         <CloseIcon src={xSolid} onClick={handleCloseModal} />
         <h3>{title}</h3>
-        <Input placeholder={placeholder1} label={label1} type={type1} />
-        <Input placeholder={placeholder2} label={label2} type={type2} />
-        <Input placeholder={placeholder3} label={label3} type={type3} />
-        <Input placeholder={placeholder4} label={label4} type={type4} />
-        <Input placeholder={placeholder5} label={label5} type={type5} />
-        <Button title={"Salvar"} id={"Save"} />
+        <FormStyled onSubmit={submit}>
+          <Input
+            placeholder={placeholder1}
+            label={label1}
+            type={type1}
+            name={name1}
+            onChange={onChange}
+          />
+          <Input
+            placeholder={placeholder2}
+            label={label2}
+            type={type2}
+            name={name2}
+            onChange={onChange}
+          />
+          <Input
+            placeholder={placeholder3}
+            label={label3}
+            type={type3}
+            name={name3}
+            onChange={onChange}
+          />
+          <Input
+            placeholder={placeholder4}
+            label={label4}
+            type={type4}
+            name={name4}
+            onChange={onChange}
+          />
+          <Input
+            placeholder={placeholder5}
+            label={label5}
+            type={type5}
+            name={name5}
+            onChange={onChange}
+          />
+          <DivButton>
+            <Button title="Salvar" id="Form" onClick={() => submit} />
+          </DivButton>
+        </FormStyled>
       </Card>
-      {/* )} */}
     </Screen>
   );
 };

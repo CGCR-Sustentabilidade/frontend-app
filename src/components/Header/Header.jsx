@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Div,
@@ -8,13 +8,25 @@ import {
   Spacer,
   Title,
 } from "./Header.styled";
+import EditCard from "../EditCard/EditCard";
 
-export default ({ title, textButton, info1, info2, info3, info4, info5 }) => {
+const Header = ({ title, textButton, info1, info2, info3, info4, info5 }) => {
+  
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <HeaderConteiner>
       <Div>
         <Title>{title}</Title>
-        <Button>{textButton}</Button>
+        <Button onClick={handleOpenModal}>{textButton}</Button>
       </Div>
       <HorizontalLine></HorizontalLine>
       <InfoDiv>
@@ -25,6 +37,11 @@ export default ({ title, textButton, info1, info2, info3, info4, info5 }) => {
         <span>{info4}</span>
         <span>{info5}</span>
       </InfoDiv>
+      {isModalVisible && (
+        <EditCard handleCloseModal={handleCloseModal} title={title} />
+      )}
     </HeaderConteiner>
   );
 };
+
+export default Header;

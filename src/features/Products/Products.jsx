@@ -148,7 +148,7 @@ export const ProductsScreen = () => {
             submit={submit}
             itemId={index}
             url={
-              "https://cgcrsistemainterno.up.railway.app/catalog/delete-product/:"
+              "https://cgcrsistemainterno.up.railway.app/catalog/delete-product/"
             }
             deleteId={product._id}
           />

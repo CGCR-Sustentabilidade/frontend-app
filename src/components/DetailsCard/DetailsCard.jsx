@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   DetailsCardStyled,
-  Image,
   IconsDiv,
   Icons,
 } from "./DetailsCard.styled";

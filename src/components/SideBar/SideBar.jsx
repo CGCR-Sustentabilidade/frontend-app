@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 import userSolid from "../../assets/icons/userSolid.svg";
 import houseSolid from "../../assets/icons/houseSolid.svg";
 import pillsSolid from "../../assets/icons/pillsSolid.svg";
-import inboxSolid from "../../assets/icons/inboxSolid.svg";
 import cartshopping from "../../assets/icons/cartshopping.svg";
 
 export const SideBar = ({ name, office }) => {

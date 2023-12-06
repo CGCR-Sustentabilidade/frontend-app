@@ -6,63 +6,116 @@ import { ElderlyConteiner, ElderlyCards } from "./Elderly.styled";
 import axios from "axios";
 
 export const ElderlyScreen = () => {
-  const initialState = {
-    name: "1_nome_do_remédio",
-    brand: "marca_do_remédio",
-    description: "descrição do remédio",
-    quantity: 10,
-    expiration_date: "2006-08-05T18:05:15.000Z",
-  };
-
-  const [values, setValues] = useState(initialState);
   const [elderlies, setElderlies] = useState([]);
+  const currentDate = new Date();
+
+  const fetchElderlies = async () => {
+    try {
+      const response = await axios.get(
+        "https://cgcrsistemainterno.up.railway.app/catalog/list-elderlies"
+      );
+      setElderlies(response.data);
+    } catch (error) {
+      console.error("Error fetching elderlies:", error);
+    }
+  };
 
   useEffect(() => {
-    const params = {};
-
-    axios
-      .get("https://cgcrsistemainterno.up.railway.app/catalog/list-elderlies", {
-        params,
-      })
-      .then((response) => {
-        setElderlies(response.data);
-      });
+    fetchElderlies();
   }, []);
 
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
+  const initialState = {
+    remedy: {
+      _id: '',
+      name: "",
+      brand: "",
+      type: "",
+      description: "",
+      expiration_date: currentDate,
+      status: "",
+    },
+  };
+  const [values, setValues] = useState(initialState);
+
+  const onChange = (ev) => {
+    const { name, value } = ev.target;
+    setValues((prevValues) => ({
+      elderlies: {
+        ...prevValues.elderlies,
+        [name]: value,
+      },
+    }));
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
 
-    axios.post(
-      "https://cgcrsistemainterno.up.railway.app/catalog/create-elderly",
-      values
-    );
+    const updatedElderlies = {
+      ...values.elderlies,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://cgcrsistemainterno.up.railway.app/catalog/create-elderly",
+        { elderlies: updatedElderlies }
+      );
+
+      console.log("POST request successful:", response.data);
+
+      setValues(initialState);
+      fetchElderlies();
+    } catch (error) {
+      console.error("Error in POST request:", error);
+    }
   };
 
   return (
     <ElderlyConteiner>
       <ElderlyCards>
         <Header
-          title="Idosos"
+          headerTitle="Idosos"
           textButton="Adicionar Idoso"
           info1="Nome"
-          info2="Email"
-          info3="Telefone"
-          info4="ID"
-          info5="Status"
+          info2="Descrição"
+          info3="Data"
+          info4="Tipo"
+          info5="Status"          
+          title={"Criar Idoso"}
+          placeholder1={"Nome"}
+          placeholder2={"Marca"}
+          placeholder3={"Descrição"}
+          placeholder4={"Data de nascimento"}
+          placeholder5={"Status"}
+          placeholder6={"Tipo"}
+          label1={"Nome:"}
+          label2={"Marca:"}
+          label3={"Descrição:"}
+          label4={"Data de nascimento:"}
+          label5={"Status:"}
+          label6={"Tipo:"}
+          type1={"text"}
+          type2={"text"}
+          type3={"text"}
+          type4={"date"}
+          type5={"text"}
+          type6={"text"}
+          name1={"name"}
+          name2={"brand"}
+          name3={"description"}
+          name4={"expiration_date"}
+          name5={"status"}
+          name6={"type"}
+          onChange={onChange}
+          submit={submit}
         />
-       {elderlies.map((medicine, index) => (
+       {elderlies.map((elderlies, index) => (
           <DetailsCard
             key={index}
-            info1={medicine.name}
-            info2={medicine.info2}
-            info3={medicine.info3}
-            info4={medicine.info4}
-            info5={medicine.info5}
+            info1={elderlies.name}
+            info2={elderlies.description}
+            info3={elderlies.Date}
+            info4={elderlies.type}
+            info5={elderlies.status}
             imgSrc={person}
             title={'Editar Idoso'}
             placeholder1={"Test"}
@@ -89,6 +142,7 @@ export const ElderlyScreen = () => {
             submit={submit}
             itemId={index}
             url={'https://cgcrsistemainterno.up.railway.app/catalog/delete-elderly/'}
+            deleteId={elderlies._id}
           />
         ))}
       </ElderlyCards>

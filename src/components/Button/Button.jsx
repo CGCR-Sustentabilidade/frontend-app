@@ -6,7 +6,7 @@ const Button = ({title, type, id, onClick, icon}) => {
         <ButtonContainer>
             <StyledButton
                 className={`${id}`}
-                type={type}
+                type='submit'
                 id={id}
                 onClick={onClick}
             >

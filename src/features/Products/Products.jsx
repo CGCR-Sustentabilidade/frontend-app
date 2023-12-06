@@ -6,82 +6,151 @@ import { ProductsList, ProductsConteiner } from "./Products.styled";
 import axios from "axios";
 
 export const ProductsScreen = () => {
-  const initialState = {
-    name: "",
-    brand: "",
-    description: "",
-    quantity: 0,
-    status: "",
-  };
-
-  const [values, setValues] = useState(initialState);
   const [products, setProducts] = useState([]);
+  const currentDate = new Date();
+  console.log(currentDate)
+
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get(
+        "https://cgcrsistemainterno.up.railway.app/catalog/list-products"
+      );
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
 
   useEffect(() => {
-    const params = {};
-
-    axios.get('https://cgcrsistemainterno.up.railway.app/catalog/list-products', { params })
-      .then((response) => {
-        setProducts(response.data);
-      });
+    fetchProducts();
   }, []);
 
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
+  const initialState = {
+    product: {
+      _id: '',
+      name: "",
+      brand: "",
+      type: "",
+      description: "",
+      expiration_date: currentDate,
+      status: "",
+    },
+  };
+  const [values, setValues] = useState(initialState);
+
+  const onChange = (ev) => {
+    const { name, value } = ev.target;
+    setValues((prevValues) => ({
+      product: {
+        ...prevValues.product,
+        [name]: value,
+      },
+    }));
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
 
-    axios.post("https://cgcrsistemainterno.up.railway.app/catalog/create-product", values);
+    const updatedProduct = {
+      ...values.product,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://cgcrsistemainterno.up.railway.app/catalog/create-product",
+        { product: updatedProduct }
+      );
+
+      console.log("POST request successful:", response.data);
+
+      setValues(initialState);
+      fetchProducts();
+    } catch (error) {
+      console.error("Error in POST request:", error);
+    }
   };
 
   return (
     <ProductsList>
       <ProductsConteiner>
         <Header
-          title="Produtos"
+          headerTitle="Produtos"
+          info1={"Nome"}
+          info2={"Marca"}
+          info3={"Descrição"}
+          info4={"Data de validade"}
+          info5={"Status"}
+          info6={"Tipo"}
           textButton="Adicionar Produto"
-          info1="Nome"
-          info2="Descrição"
-          info3="Quantidade"
-          info4="ID"
-          info5="Data de Entrada"
+          title={"Criar Produto"}
+          placeholder1={"Nome do produto"}
+          placeholder2={"Marca do produto"}
+          placeholder3={"Descrição do produto"}
+          placeholder4={"Data de validade"}
+          placeholder5={"Status"}
+          placeholder6={"Tipo"}
+          label1={"Nome:"}
+          label2={"Marca:"}
+          label3={"Descrição:"}
+          label4={"Data de validade:"}
+          label5={"Status:"}
+          label6={"Tipo:"}
+          type1={"text"}
+          type2={"text"}
+          type3={"text"}
+          type4={"date"}
+          type5={"text"}
+          type6={"text"}
+          name1={"name"}
+          name2={"brand"}
+          name3={"description"}
+          name4={"expiration_date"}
+          name5={"status"}
+          name6={"type"}
+          onChange={onChange}
+          submit={submit}
         />
-        {products.map((product, index) => (
+        {products?.map((product, index) => (
           <DetailsCard
             key={index}
             info1={product.name}
             info2={product.brand}
             info3={product.description}
-            info4={product.quantity}
-            info5={product.status}
+            info5={product.expiration_date}
+            info4={product.status}
+            info6={product.type}
             title={"Editar Produto"}
-            placeholder1={"Test"}
-            placeholder2={"Test"}
-            placeholder3={"Test"}
-            placeholder4={"Test"}
-            placeholder5={"Test"}
-            label1={"Test"}
-            label2={"Test"}
-            label3={"Test"}
-            label4={"Test"}
-            label5={"Test"}
+            placeholder1={"Nome do produto"}
+            placeholder2={"Marca do produto"}
+            placeholder3={"Descrição do produto"}
+            placeholder4={"Data de validade"}
+            placeholder5={"Status"}
+            placeholder6={"Tipo"}
+            label1={"Nome:"}
+            label2={"Marca:"}
+            label3={"Descrição:"}
+            label4={"Data de validade:"}
+            label5={"Status:"}
+            label6={"Tipo:"}
             type1={"text"}
             type2={"text"}
             type3={"text"}
-            type4={"text"}
+            type4={"date"}
             type5={"text"}
-            name1={'name1'}
-            name2={'name2'}
-            name3={'name3'}
-            name4={'name4'}
-            name5={'name5'}
+            type6={"text"}
+            name1={"name"}
+            name2={"brand"}
+            name3={"description"}
+            name4={"expiration_date"}
+            name5={"status"}
+            name6={"type"}
             onChange={onChange}
             submit={submit}
             itemId={index}
-            url={'https://cgcrsistemainterno.up.railway.app/catalog/delete-product/'}
+            url={
+              "https://cgcrsistemainterno.up.railway.app/catalog/delete-product/:"
+            }
+            deleteId={product._id}
           />
         ))}
       </ProductsConteiner>

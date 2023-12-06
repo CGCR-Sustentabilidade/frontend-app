@@ -1,19 +1,23 @@
-import React, { Children } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { Children } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import { createBrowserRouter as Router, RouterProvider} from 'react-router-dom';
+import {
+  createBrowserRouter as Router,
+  RouterProvider,
+} from "react-router-dom";
 
 // import Dashboard from './features/Dashboard/Dashboard';
-import { ProductsScreen } from './features/Products/Products';
-import Medicines from './features/Medicines/Medicines';
-import { ElderlyScreen } from './features/Elderly/Elderly';
+import { ProductsScreen } from "./features/Products/Products";
+import Medicines from "./features/Medicines/Medicines";
+import { ElderlyScreen } from "./features/Elderly/Elderly";
 
 const router = Router([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       // {
@@ -22,24 +26,28 @@ const router = Router([
       // },
       {
         path: "produtos",
-        element: <ProductsScreen />
+        element: <ProductsScreen />,
       },
       {
         path: "/medicamentos",
-        element: <Medicines />
+        element: <Medicines />,
       },
       {
         path: "/idosos",
-        element: <ElderlyScreen />
+        element: <ElderlyScreen />,
       },
-    ]
+    ],
   },
-])
+]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const queryClient = new QueryClient();
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

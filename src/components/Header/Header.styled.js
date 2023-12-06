@@ -13,9 +13,9 @@ export const InfoDiv = styled.div`
   width: 100%;
   height: 60px;
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 2fr ;
+  grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 2fr;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   background-color: #e5e5e5;
   color: #acacac;
   font-size: 12px;
@@ -56,7 +56,7 @@ export const Button = styled.button`
 `;
 
 export const HorizontalLine = styled.hr`
-  width: 1170px;
+  width: 100%;
   background-color: pink;
   margin: 0;
 `;

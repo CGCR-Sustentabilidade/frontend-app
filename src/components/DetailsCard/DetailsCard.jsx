@@ -16,32 +16,36 @@ const DetailsCard = ({
   info3,
   info4,
   info5,
-  imgSrc,
+  info6,
   title,
   placeholder1,
   placeholder2,
   placeholder3,
   placeholder4,
   placeholder5,
+  placeholder6,
   label1,
   label2,
   label3,
   label4,
   label5,
+  label6,
   type1,
   type2,
   type3,
   type4,
   type5,
+  type6,
   name1,
   name2,
   name3,
   name4,
   name5,
+  name6,
   onChange,
   submit,
   url,
-  itemId,
+  deleteId,
 }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isDetailsCard, setIsDetailsCard] = useState(true);
@@ -55,11 +59,8 @@ const DetailsCard = ({
   };
 
   const handleDelete = () => {
-    axios.delete(url, {
-      params: {
-        id: itemId,
-      },
-    })
+
+    axios.post(url + deleteId)
     .then((response) => {
       setIsDetailsCard(false);
     });
@@ -74,6 +75,7 @@ const DetailsCard = ({
           <span>{info3}</span>
           <span>{info4}</span>
           <span>{info5}</span>
+          <span>{info6}</span>
           <IconsDiv>
             <Icons src={pencil} alt="" onClick={handleOpenModal} />
             <Icons src={trash} alt="" onClick={handleDelete} />
@@ -89,21 +91,25 @@ const DetailsCard = ({
           placeholder3={placeholder3}
           placeholder4={placeholder4}
           placeholder5={placeholder5}
+          placeholder6={placeholder6}
           label1={label1}
           label2={label2}
           label3={label3}
           label4={label4}
           label5={label5}
+          label6={label6}
           type1={type1}
           type2={type2}
           type3={type3}
           type4={type4}
           type5={type5}
+          type6={type6}
           name1={name1}
           name2={name2}
           name3={name3}
           name4={name4}
           name5={name5}
+          name6={name6}
           onChange={onChange}
           submit={submit}
         />

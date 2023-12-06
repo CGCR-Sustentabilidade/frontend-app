@@ -10,7 +10,7 @@ export const ElderlyConteiner = styled.div`
 `;
 
 export const ElderlyCards = styled.div`
-  width: 1070px;
+  width: 100%;
   margin: 0px 30px 0 30px;
   display: grid;
 `;

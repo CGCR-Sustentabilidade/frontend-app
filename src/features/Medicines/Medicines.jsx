@@ -6,54 +6,107 @@ import { MedicineConteiner, MedicineScreen } from "./Medicines.styled";
 import axios from "axios";
 
 export const MedicinesScreen = () => {
-  const initialState = {
-    name: "1_nome_do_remédio",
-    brand: "marca_do_remédio",
-    description: "descrição do remédio",
-    quantity: 10,
-    expiration_date: "2006-08-05T18:05:15.000Z",
-  };
-
-  const [values, setValues] = useState(initialState);
   const [medicines, setMedicines] = useState([]);
+  const currentDate = new Date();
+
+  const fetchMedicines = async () => {
+    try {
+      const response = await axios.get(
+        "https://cgcrsistemainterno.up.railway.app/catalog/list-remedies"
+      );
+      setMedicines(response.data);
+    } catch (error) {
+      console.error("Error fetching Medicines:", error);
+    }
+  };
 
   useEffect(() => {
-    const params = {};
-
-    axios
-      .get("https://cgcrsistemainterno.up.railway.app/catalog/list-remedies", {
-        params,
-      })
-      .then((response) => {
-        setMedicines(response.data);
-      });
+    fetchMedicines();
   }, []);
 
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
+  const initialState = {
+    remedy: {
+      _id: '',
+      name: "",
+      brand: "",
+      type: "",
+      description: "",
+      expiration_date: currentDate,
+      status: "",
+    },
+  };
+  const [values, setValues] = useState(initialState);
+
+  const onChange = (ev) => {
+    const { name, value } = ev.target;
+    setValues((prevValues) => ({
+      remedy: {
+        ...prevValues.remedy,
+        [name]: value,
+      },
+    }));
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
 
-    axios.post(
-      "https://cgcrsistemainterno.up.railway.app/catalog/create-remedy",
-      values
-    );
-  };
+    const updatedRemedy = {
+      ...values.remedy,
+    };
 
+    try {
+      const response = await axios.post(
+        "https://cgcrsistemainterno.up.railway.app/catalog/create-remedy",
+        { remedy: updatedRemedy }
+      );
+
+      console.log("POST request successful:", response.data);
+
+      setValues(initialState);
+      fetchMedicines();
+    } catch (error) {
+      console.error("Error in POST request:", error);
+    }
+  };
+  
   return (
     <MedicineScreen>
       <MedicineConteiner>
         <Header
-          title="Medicamentos"
+          headerTitle="Medicamentos"
           textButton="Adicionar Medicamento"
           info1="Nome"
           info2="Descrição"
           info3="Validade"
           info4="Quantidade"
-          info5="Status"
+          info5="Status"          
+          title={"Criar Medicamento"}
+          placeholder1={"Nome do medicamento"}
+          placeholder2={"Marca do medicamento"}
+          placeholder3={"Descrição do medicamento"}
+          placeholder4={"Data de validade"}
+          placeholder5={"Status"}
+          placeholder6={"Tipo"}
+          label1={"Nome:"}
+          label2={"Marca:"}
+          label3={"Descrição:"}
+          label4={"Data de validade:"}
+          label5={"Status:"}
+          label6={"Tipo:"}
+          type1={"text"}
+          type2={"text"}
+          type3={"text"}
+          type4={"date"}
+          type5={"text"}
+          type6={"text"}
+          name1={"name"}
+          name2={"brand"}
+          name3={"description"}
+          name4={"expiration_date"}
+          name5={"status"}
+          name6={"type"}
+          onChange={onChange}
+          submit={submit}
         />
         {medicines.map((medicine, index) => (
           <DetailsCard
@@ -61,9 +114,9 @@ export const MedicinesScreen = () => {
             info1={medicine.name}
             info2={medicine.brand}
             info3={medicine.description}
-            info4={medicine.quantity}
+            info4={medicine.type}
             info5={medicine.expiration_date}
-            imgSrc={person}
+            info6={medicine.status}
             title={"Editar Medicamento"}
             placeholder1={"Test"}
             placeholder2={"Test"}
@@ -89,6 +142,7 @@ export const MedicinesScreen = () => {
             submit={submit}
             itemId={index}
             url={'https://cgcrsistemainterno.up.railway.app/catalog/delete-remedy/'}
+            deleteId={medicine._id}
           />
         ))}
       </MedicineConteiner>

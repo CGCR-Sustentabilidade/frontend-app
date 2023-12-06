@@ -2,15 +2,16 @@ import React from 'react';
 import { InputContainer, InputStyled, Label} from './Input.styled';
 
 
-export const Input = ({placeholder, type, register, label, isError}) => {
+export const Input = ({placeholder, type, name, label, onChange}) => {
     return (
-        <InputContainer isError={isError}>
+        <InputContainer >
             <Label>{label}</Label>
             <InputStyled
                 placeholder={placeholder}
                 type={type}
-                {...register}
+                name={name}
                 autoComplete='off'
+                onChange={onChange}
             />
         </InputContainer>
     );

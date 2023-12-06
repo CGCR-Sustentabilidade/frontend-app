@@ -17,26 +17,29 @@ export const EditCard = ({
   placeholder3,
   placeholder4,
   placeholder5,
+  placeholder6,
   label1,
   label2,
   label3,
   label4,
   label5,
+  label6,
   type1,
   type2,
   type3,
   type4,
   type5,
+  type6,
   name1,
   name2,
   name3,
   name4,
   name5,
+  name6,
   handleCloseModal,
   onChange,
-  submit
+  submit,
 }) => {
-
   return (
     <Screen>
       <Card>
@@ -76,6 +79,13 @@ export const EditCard = ({
             label={label5}
             type={type5}
             name={name5}
+            onChange={onChange}
+          />
+          <Input
+            placeholder={placeholder6}
+            label={label6}
+            type={type6}
+            name={name6}
             onChange={onChange}
           />
           <DivButton>

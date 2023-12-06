@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import DetailsCard from "../../components/DetailsCard/DetailsCard";
-import person from "../../assets/icons/person.svg";
 import { MedicineConteiner, MedicineScreen } from "./Medicines.styled";
 import axios from "axios";
 

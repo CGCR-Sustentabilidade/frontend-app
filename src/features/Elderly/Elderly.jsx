@@ -28,10 +28,8 @@ export const ElderlyScreen = () => {
     remedy: {
       _id: '',
       name: "",
-      brand: "",
       type: "",
       description: "",
-      expiration_date: currentDate,
       status: "",
     },
   };
@@ -82,13 +80,13 @@ export const ElderlyScreen = () => {
           info5="Status"          
           title={"Criar Idoso"}
           placeholder1={"Nome"}
-          placeholder2={"Marca"}
+          placeholder2={"Contato"}
           placeholder3={"Descrição"}
           placeholder4={"Data de nascimento"}
           placeholder5={"Status"}
           placeholder6={"Tipo"}
           label1={"Nome:"}
-          label2={"Marca:"}
+          label2={"Contato:"}
           label3={"Descrição:"}
           label4={"Data de nascimento:"}
           label5={"Status:"}
@@ -116,28 +114,31 @@ export const ElderlyScreen = () => {
             info3={elderlies.Date}
             info4={elderlies.type}
             info5={elderlies.status}
-            imgSrc={person}
             title={'Editar Idoso'}
-            placeholder1={"Test"}
-            placeholder2={"Test"}
-            placeholder3={"Test"}
-            placeholder4={"Test"}
-            placeholder5={"Test"}
-            label1={"Test"}
-            label2={"Test"}
-            label3={"Test"}
-            label4={"Test"}
-            label5={"Test"}
+            placeholder1={"Nome"}
+            placeholder2={"Contato"}
+            placeholder3={"Descrição"}
+            placeholder4={"Data de nascimento"}
+            placeholder5={"Status"}
+            placeholder6={"Tipo"}
+            label1={"Nome:"}
+            label2={"Contato:"}
+            label3={"Descrição:"}
+            label4={"Data de nascimento:"}
+            label5={"Status:"}
+            label6={"Tipo:"}
             type1={"text"}
             type2={"text"}
             type3={"text"}
-            type4={"text"}
+            type4={"date"}
             type5={"text"}
-            name1={'name1'}
-            name2={'name2'}
-            name3={'name3'}
-            name4={'name4'}
-            name5={'name5'}
+            type6={"text"}
+            name1={"name"}
+            name2={"brand"}
+            name3={"description"}
+            name4={"expiration_date"}
+            name5={"status"}
+            name6={"type"}
             onChange={onChange}
             submit={submit}
             itemId={index}

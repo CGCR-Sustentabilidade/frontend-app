@@ -17,23 +17,6 @@ import inboxSolid from "../../assets/icons/inboxSolid.svg";
 import cartshopping from "../../assets/icons/cartshopping.svg";
 
 export const SideBar = ({ name, office }) => {
-
-//   const handleClick = () => {
-//     getData() {    
-//         // create a new XMLHttpRequest    
-//         var xhr = new XMLHttpRequest() 
-
-//         // get a callback when the server responds   
-//         xhr.addEventListener('load', () => {      
-//             // update the state of the component with the result here      
-//             console.log(xhr.responseText)    })   
-//              // open the request with the verb and the url 
-//             xhr.open('GET', 'https://dog.ceo/api/breeds/list/all')   
-//                 // send the request    
-//                 xhr.send()  
-//     }
-//   };
-
   return (
     <SideBarConteiner id="sideBar">
       <Title>CGCR</Title>
@@ -60,13 +43,12 @@ export const SideBar = ({ name, office }) => {
           title={"Produtos"}
           id={"SideBar"}
           icon={cartshopping}
-        //   onClick={handleClick}
         />
       </Link>
 
-      <Link to="/">
+      {/* <Link to="/">
         <Button title={"Relatórios"} id={"SideBar"} icon={inboxSolid} />
-      </Link>
+      </Link> */}
     </SideBarConteiner>
   );
 };

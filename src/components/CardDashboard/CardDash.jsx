@@ -1,7 +1,7 @@
 import React from "react"
 import { CardDashConteiner, Content, Icon, Title } from "./CardDash.styled"
 
-export default ({srcImg, altImg, title, content, backgroundColor}) => {
+const CardDash = ({srcImg, altImg, title, content, backgroundColor}) => {
     return (
         <CardDashConteiner backgroundColor={backgroundColor}>
             <Icon src={srcImg} alt={altImg}/>
@@ -10,3 +10,5 @@ export default ({srcImg, altImg, title, content, backgroundColor}) => {
         </CardDashConteiner>
     )
 }
+
+export default CardDash;

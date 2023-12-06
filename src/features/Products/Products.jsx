@@ -8,7 +8,6 @@ import axios from "axios";
 export const ProductsScreen = () => {
   const [products, setProducts] = useState([]);
   const currentDate = new Date();
-  console.log(currentDate)
 
   const fetchProducts = async () => {
     try {

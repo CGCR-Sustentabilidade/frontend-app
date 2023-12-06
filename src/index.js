@@ -10,20 +10,20 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// import Dashboard from './features/Dashboard/Dashboard';
 import { ProductsScreen } from "./features/Products/Products";
 import Medicines from "./features/Medicines/Medicines";
 import { ElderlyScreen } from "./features/Elderly/Elderly";
+import Home from "./features/Home/Home";
 
 const router = Router([
   {
     path: "/",
     element: <App />,
     children: [
-      // {
-      //   path: '/',
-      //   element: <Dashboard />,
-      // },
+      {
+        path: '/',
+        element: <Home />,
+      },
       {
         path: "produtos",
         element: <ProductsScreen />,

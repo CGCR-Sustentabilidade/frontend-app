@@ -43,7 +43,7 @@ export const EditCard = ({
   return (
     <Screen>
       <Card>
-        <CloseIcon src={xSolid} onClick={handleCloseModal} />
+        <CloseIcon src={xSolid} onClick={handleCloseModal} alt='x image'/>
         <h3>{title}</h3>
         <FormStyled onSubmit={submit}>
           <Input

@@ -76,7 +76,7 @@ const DetailsCard = ({
           <span>{info5}</span>
           <span>{info6}</span>
           <IconsDiv>
-            <Icons src={pencil} alt="" onClick={handleOpenModal} />
+            <Icons src={pencil} alt="pencil icon" onClick={handleOpenModal} />
             <Icons src={trash} alt="" onClick={handleDelete} />
           </IconsDiv>
         </DetailsCardStyled>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import EditCard from '../EditCard'; 
+import EditCard from '../EditCard';
 
 describe('EditCard Component', () => {
 
@@ -33,9 +33,9 @@ describe('EditCard Component', () => {
         name4="name4"
         name5="name5"
         name6="name6"
-        handleCloseModal={() => {}}
-        onChange={() => {}}
-        submit={() => {}}
+        handleCloseModal={() => { }}
+        onChange={() => { }}
+        submit={() => { }}
       />
     );
 
@@ -62,8 +62,8 @@ describe('EditCard Component', () => {
         type1="text"
         name1="name1"
         handleCloseModal={mockHandleCloseModal}
-        onChange={() => {}}
-        submit={() => {}}
+        onChange={() => { }}
+        submit={() => { }}
       />
     );
 
@@ -75,7 +75,7 @@ describe('EditCard Component', () => {
   });
 
   it('should call submit function when "Salvar" button is clicked', () => {
-    const mockSubmit = jest.fn();
+    const mockSubmit = jest.fn(e => e.preventDefault());
 
     render(
       <EditCard
@@ -84,16 +84,17 @@ describe('EditCard Component', () => {
         label1="Label 1"
         type1="text"
         name1="name1"
-        handleCloseModal={() => {}}
-        onChange={() => {}}
+        handleCloseModal={() => { }}
+        onChange={() => { }}
         submit={mockSubmit}
       />
     );
 
     // Simula o clique no botão "Salvar"
-    fireEvent.click(screen.getByText('Salvar'));
-
+    fireEvent.click(screen.getByText(/Salvar/i));
+  
     // Verifica se a função submit foi chamada
-    expect(mockSubmit).toHaveBeenCalled();
+    expect(mockSubmit).toHaveBeenCalled()
+
   });
 });

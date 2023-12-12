@@ -74,11 +74,10 @@ export const ProductsScreen = () => {
         <Header
           headerTitle="Produtos"
           info1={"Nome"}
-          info2={"Marca"}
-          info3={"Descrição"}
+          info2={"Descrição"}
+          info3={"Marca"}
           info4={"Data de validade"}
           info5={"Status"}
-          info6={"Tipo"}
           textButton="Adicionar Produto"
           title={"Criar Produto"}
           placeholder1={"Nome do produto"}
@@ -112,10 +111,10 @@ export const ProductsScreen = () => {
           <DetailsCard
             key={index}
             info1={product.name}
-            info2={product.brand}
-            info3={product.description}
-            info5={product.expiration_date}
-            info4={product.status}
+            info2={product.description}
+            info3={product.brand}
+            info4={product.expiration_date}
+            info5={product.status}
             info6={product.type}
             title={"Editar Produto"}
             placeholder1={"Nome do produto"}

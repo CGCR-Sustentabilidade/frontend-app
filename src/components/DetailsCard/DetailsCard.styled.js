@@ -1,15 +1,20 @@
 import styled from "styled-components";
 
 export const DetailsCardStyled = styled.div`
-  width: 100%;
+  width: 1170px;
   height: 85px;
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 3fr 2fr 2fr 2fr 2fr;
   align-items: center;
   background-color: #fff;
   text-align: start;
   margin-bottom: 10px;
-  padding: 3px 16px;
+  border-radius: 15px;
+  
+  & span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
 export const IconsDiv = styled.div`

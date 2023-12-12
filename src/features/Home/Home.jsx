@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CardDash from "../../components/CardDashboard/CardDash";
-import { DivD } from "./Home.styled";
+import { DivD, HomeScreen } from "./Home.styled";
 import axios from "axios";
 
 const Home = () => {
@@ -48,11 +48,15 @@ const Home = () => {
   }, []);
 
   return (
-    <DivD>
-      <CardDash title={"Idosos"} content={elderlies.length} />
-      <CardDash title={"Medicamentos"} content={medicines.length} />
-      <CardDash title={"Produtos"} content={products.length} />
-    </DivD>
+    <HomeScreen>
+      <DivD>
+        <CardDash title={"Idosos"} content={elderlies.length} backgroundColor='#7fccff' />
+        <CardDash title={"Medicamentos"} content={medicines.length} 
+        backgroundColor='#ffceec'/>
+        <CardDash title={"Produtos"} content={products.length} 
+        backgroundColor='##FEF6FB'/>
+      </DivD>
+    </HomeScreen>
   );
 };
 

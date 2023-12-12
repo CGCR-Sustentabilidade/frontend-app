@@ -26,5 +26,5 @@ export const Content = styled.span`
     text-align: end;
     font-size: 1.5rem;
     font-weight: bold;
-    color:  #FEAF00;
+    color:  black;
 `;

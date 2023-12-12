@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const SideBarConteiner = styled.div`
-    width: 270px ;
+    max-width: 250px ;
+    min-width: 250px;
     height: 100vh;
     background-color: #F2EAE1;
     display: flex;
@@ -11,6 +12,11 @@ export const SideBarConteiner = styled.div`
 
     & a {
         text-decoration: none
+    }
+
+    & a button {
+        justify-content: start;
+        padding: 20px;
     }
 `;
 

@@ -77,7 +77,7 @@ export const MedicinesScreen = () => {
           info1="Nome"
           info2="Descrição"
           info3="Validade"
-          info4="Quantidade"
+          info4="Tipo"
           info5="Status"          
           title={"Criar Medicamento"}
           placeholder1={"Nome do medicamento"}
@@ -111,11 +111,10 @@ export const MedicinesScreen = () => {
           <DetailsCard
             key={index}
             info1={medicine.name}
-            info2={medicine.brand}
-            info3={medicine.description}
+            info2={medicine.description}
+            info3={medicine.expiration_date}
             info4={medicine.type}
-            info5={medicine.expiration_date}
-            info6={medicine.status}
+            info5={medicine.status}
             title={"Editar Medicamento"}
             placeholder1={"Nome do medicamento"}
             placeholder2={"Marca do medicamento"}

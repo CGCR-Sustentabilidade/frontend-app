@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderConteiner = styled.div`
-  width: 100%;
+  width: 1170px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -10,13 +10,13 @@ export const HeaderConteiner = styled.div`
 `;
 
 export const InfoDiv = styled.div`
-  width: 100%;
+  width: 1170px;
   height: 60px;
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-template-columns: 1fr 2fr 3fr 2fr 2fr 2fr 2fr;
   align-items: center;
-  justify-content: flex-start;
-  background-color: #e5e5e5;
+  justify-content: space-around;
+  background-color: #f8f8f8;
   color: #acacac;
   font-size: 12px;
   font-weight: 600;
@@ -56,7 +56,7 @@ export const Button = styled.button`
 `;
 
 export const HorizontalLine = styled.hr`
-  width: 100%;
+  width: 1170px;
   background-color: pink;
   margin: 0;
 `;

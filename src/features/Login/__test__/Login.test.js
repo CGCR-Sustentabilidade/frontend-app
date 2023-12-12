@@ -5,7 +5,7 @@ import Login from '../Login';
 describe('Login component', () => {
   // Teste de renderização inicial
   it('renders Login component', () => {
-    const { getByText, getByLabelText } = render(<Login />);
+    const { getByText } = render(<Login />);
 
     expect(getByText('CGCR')).toBeInTheDocument();
     expect(getByText('Login')).toBeInTheDocument();
